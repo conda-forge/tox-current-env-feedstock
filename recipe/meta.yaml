@@ -1,13 +1,13 @@
 {% set name = "tox-current-env" %}
-{% set version = "0.0.11" %}
+{% set version = "0.0.14" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/tox-current-env-{{ version }}.tar.gz
-  sha256: 5b05d7a169e323ca73c8bacd90cfcfe38e2672b705f944f94d1d6c0f56f31c51
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name.replace('-', '_') }}-{{ version }}.tar.gz
+  sha256: 5bae55e40d544239128699c32061edd635593538d60695925c6442a0e18540f0
 
 build:
   noarch: python
