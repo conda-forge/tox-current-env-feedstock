@@ -144,4 +144,5 @@ Feedstock Maintainers
 =====================
 
 * [@millsks](https://github.com/millsks/)
+* [@wshanks](https://github.com/wshanks/)
 
