@@ -1,0 +1,45 @@
+schema_version: 1
+
+context:
+  version: "0.0.17"
+
+package:
+  name: tox-current-env
+  version: ${{ version }}
+
+source:
+  url: https://pypi.org/packages/source/t/tox-current-env/tox_current_env-${{ version }}.tar.gz
+  sha256: 97d99d041d71e3b1831b6713db74ea24ac6e5bfa18eb481598b81d624cad16d2
+
+build:
+  number: 0
+  noarch: python
+  script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+
+requirements:
+  host:
+    - python ${{ python_min }}.*
+    - setuptools
+    - wheel
+    - pip
+  run:
+    - python >=${{ python_min }}
+    - tox >=3.28
+
+tests:
+  - python:
+      imports:
+        - tox_current_env
+      pip_check: true
+      python_version: ${{ python_min }}.*
+
+about:
+  summary: Use current environment instead of virtualenv for tox testenvs
+  license: MIT
+  license_file: LICENSE
+  homepage: https://github.com/fedora-python/tox-current-env
+
+extra:
+  recipe-maintainers:
+    - millsks
+    - wshanks
